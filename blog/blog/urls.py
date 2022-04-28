@@ -15,22 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.http import HttpResponse
-from django.urls import path,include
+from django.urls import path, include
 
 import logging
 
-
-logger =logging.getLogger('django')
-
-
-
-
-def urls(request):
-    logger.info('做到了')
-    return HttpResponse('haha haha')
-
+logger = logging.getLogger('django')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include(('users.urls','users'),namespace='users'))
+    path('', include(('users.urls', 'users'), namespace='users')),
+    path('',include(('home.urls','home'),namespace='home'))
 ]

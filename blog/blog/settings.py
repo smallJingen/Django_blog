@@ -127,9 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR, 'static')
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -141,8 +140,10 @@ CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/0",
+        # 'password': 'hjg',
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+
         }
     },
     # 将session信息保存在redis数据库中
@@ -151,6 +152,8 @@ CACHES = {
         "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            # 本地redis设置了密码登录连接操作
+            # "PASSWORD": "hjg",
         }
     }
 }
@@ -243,3 +246,5 @@ LOGGING = {
         },
     },
 }
+
+AUTH_USER_MODEL = 'users.User'

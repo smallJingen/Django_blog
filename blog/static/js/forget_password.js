@@ -102,7 +102,7 @@ var vm = new Vue({
             if (this.mobile_error == true || this.image_code_error == true) {
                 this.sending_flag = false;
                 this.sms_code_error=true;
-                this.sms_code_error_message='手机号或验证码错误'
+                this.sms_code_error_message='手机号或验证码错误';
                 return;
             }
             this.sending_flag = true;
